@@ -1,0 +1,23 @@
+.landingPostList {
+	display: flex;
+	margin: 24px 0;
+}
+
+.landingPost {
+	border: 1px solid #aaa;
+	width: 25%;
+
+	&:not(:last-of-type) {
+		margin-right: 24px;
+	}
+
+	.postHeading {
+		padding: 8px;
+		margin: 0;
+	}
+
+	.postExcerpt {
+		padding: 8px;
+		margin: 0;
+	}
+}
