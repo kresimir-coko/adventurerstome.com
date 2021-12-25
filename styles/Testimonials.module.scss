@@ -1,11 +1,48 @@
+@import './variables.module.scss';
+
 .testimonials {
 	display: flex;
+	max-width: 1280px;
+	width: 100%;
+	margin: 48px auto;
 }
 
 .testimonial {
+	background-color: #fff;
+	border-radius: 100px 16px 16px 100px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	display: flex;
 
+	&:nth-child(2) {
+		border-radius: 16px;
+	}
+
+	&:last-child {
+		border-radius: 16px 100px 100px 16px;
+	}
+
+	&:not(:last-child) {
+		margin-right: 24px;
+	}
+
 	.imageSection {
+		display: flex;
+		align-items: center;
+		padding: 24px;
 		width: 33%;
+
+		img {
+			position: relative;
+		}
+	}
+
+	.contentSection {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		h3 {
+			padding-bottom: 0;
+		}
 	}
 }

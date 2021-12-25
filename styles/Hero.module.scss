@@ -1,11 +1,14 @@
+@import './variables.module';
+
 .hero {
 	align-items: center;
-	background-color: #eee;
+	background-image: url('https://c10.patreonusercontent.com/3/eyJxIjoxMDAsIndlYnAiOjB9/patreon-media/p/post/51259883/8054c1f4358a4883ab00d82a6e5c1e14/1.png?token-time=1641686400&token-hash=q6HJAcxnNRacgOTh1CiRO95XBTJthPYWUj1spYwLChY%3D');
+	background-size: cover;
 	display: flex;
-	height: 100vh;
+	height: 120vh;
 	justify-content: center;
-	left: 0;
-	top: 0;
+	margin-top: -82px;
+	margin-bottom: -34vh;
 	width: 100%;
 }
 
@@ -16,4 +19,43 @@
 	margin-right: auto;
 	max-width: 1400px;
 	width: 100%;
+
+	.heroText {
+		background-color: rgba(#fff, 50%);
+		backdrop-filter: blur(7px);
+		border-radius: 8px;
+		box-shadow: $box-shadow-large;
+		padding: 32px 16px;
+	}
+}
+
+.title {
+	color: $primary-color;
+	font-size: 4em;
+	margin: 0 0 8px 0;
+	text-shadow: 2px 2px 0 $secondary-color;
+}
+
+.subtitle {
+	padding: 0;
+	font-size: 1.5em;
+}
+
+.cta {
+	background-color: $primary-color;
+	border-radius: 8px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
+	color: #fff;
+	display: inline-block;
+	font-family: 'Alegreya Sans SC';
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-top: 24px;
+	padding: 16px 24px;
+
+	&:hover {
+		background-color: $secondary-color;
+		transition: all 0.2s ease-in-out;
+		cursor: pointer;
+	}
 }

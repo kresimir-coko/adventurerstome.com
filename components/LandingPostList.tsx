@@ -2,15 +2,18 @@ import React from 'react';
 import LandingPost from './LandingPost';
 import styles from '../styles/LandingPosts.module.scss';
 
-function LandingPostList() {
+export default function LandingPostList({posts, images}) {
 	return (
 		<div className={styles.landingPostList}>
-			<LandingPost />
-			<LandingPost />
-			<LandingPost />
-			<LandingPost />
+			{posts.map((post, index) => (
+				<LandingPost
+					body={post.body}
+					id={post.id}
+					photo={images[index].thumbnailUrl}
+					key={post.id}
+					title={post.title}
+				/>
+			))}
 		</div>
 	);
 }
-
-export default LandingPostList;

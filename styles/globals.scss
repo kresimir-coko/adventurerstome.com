@@ -2,8 +2,16 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+	font-family: 'Alegreya Sans', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html {
+	background-color: #eee;
+}
+
+main {
+	margin-top: 82px;
 }
 
 a {
@@ -15,20 +23,31 @@ a {
 	box-sizing: border-box;
 }
 
+h1,
+h2,
+h3 {
+	font-family: 'Alegreya SC';
+}
+
+h3 {
+	margin: 0;
+	padding: 16px;
+}
+
+p {
+	margin: 0;
+	padding: 16px;
+}
+
 .half-section {
 	width: 50%;
 }
 
-.hero-cta {
-	background-color: #999;
-	color: #fff;
-	display: inline-block;
-	font-size: 1.2em;
-	margin-top: 24px;
-	padding: 16px 24px;
-}
-
 .main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	margin: 0 auto;
 	max-width: 1400px;
 	width: 100%;

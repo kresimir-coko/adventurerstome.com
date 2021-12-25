@@ -10,8 +10,8 @@ function Testimonial() {
 				<Image
 					src={logo}
 					alt="Adventurer's Tome"
-					width={300}
-					height={300}
+					width={100}
+					height={100}
 				/>
 			</section>
 
@@ -20,9 +20,7 @@ function Testimonial() {
 
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Enim earum soluta voluptate ipsum obcaecati incidunt
-					dolores, explicabo aut qui sit perferendis quae eum tempore
-					unde, fuga minima odit? Sapiente, aliquid!
+					Enim earum soluta voluptate ipsum obcaecati incidunt.
 				</p>
 			</section>
 		</div>

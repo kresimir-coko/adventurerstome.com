@@ -10,36 +10,41 @@ function Header() {
 			<div className={styles.headerContainer}>
 				<div className={styles.imageContainer}>
 					<Link href="/">
-						<Image src={logo} alt="logo" />
+						<a>
+							<Image src={logo} alt="logo" />
+						</a>
 					</Link>
 				</div>
 
 				<nav className={styles.nav}>
 					<ul className={styles.navList}>
 						<li className={styles.navItem}>
-							<Link href="/">
-								<a className={styles.navLink}>Home</a>
-							</Link>
-						</li>
-
-						<li className={styles.navItem}>
-							<Link href="/maps">
+							<Link href="/posts">
 								<a className={styles.navLink}>Maps</a>
 							</Link>
 						</li>
 
 						<li className={styles.navItem}>
-							<Link href="/items">
+							<Link href="/posts">
 								<a className={styles.navLink}>Items</a>
 							</Link>
 						</li>
 
 						<li className={styles.navItem}>
-							<Link href="/one-page-dungeons">
+							<Link href="/posts">
 								<a className={styles.navLink}>
 									One Page Dungeons
 								</a>
 							</Link>
+						</li>
+
+						<li className={styles.navItem}>
+							<a
+								className={styles.navLink}
+								href="https://www.patreon.com/adventurerstome"
+							>
+								Patreon
+							</a>
 						</li>
 					</ul>
 				</nav>
