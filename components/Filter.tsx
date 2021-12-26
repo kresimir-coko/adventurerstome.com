@@ -3,28 +3,51 @@ import {FaFilter} from 'react-icons/fa';
 import styles from '../styles/Filter.module.scss';
 import Chip from './Chip';
 
-export default function Filter() {
-	function handleClick() {
-		console.log('clicked');
-	}
-
+export default function Filter({
+	categories,
+	filterQuery,
+	handleQueryChange,
+}: {
+	categories: object[];
+	filterQuery: string[];
+	handleQueryChange: any;
+}) {
 	return (
 		<div className={styles.filter}>
 			<section className={styles.mainCategories}>
 				<FaFilter className={styles.filterIcon} />
 
-				<Chip label="Maps" onClick={handleClick} />
-				<Chip label="Adventures" onClick={handleClick} />
-				<Chip label="Weapons" onClick={handleClick} />
-				<Chip label="Mechanics" onClick={handleClick} />
+				{categories.map((category) => (
+					<Chip
+						category={category}
+						filterQuery={filterQuery}
+						key={category.key}
+						setFilterQuery={handleQueryChange}
+						selected={filterQuery.includes(category.key)}
+						subCategory={false}
+					/>
+				))}
 			</section>
 
-			<section className={styles.subCategories}>
-				<Chip label="Cave" onClick={handleClick} />
-				<Chip label="Ruin" onClick={handleClick} />
-				<Chip label="Building" onClick={handleClick} />
-				<Chip label="Monument" onClick={handleClick} />
-			</section>
+			{filterQuery.includes('maps') && (
+				<section className={styles.subCategories}>
+					{categories[0].subCategories.map((subCategory) => (
+						<Chip
+							category={subCategory}
+							filterQuery={filterQuery}
+							key={subCategory.key}
+							selected={filterQuery.includes(subCategory.key)}
+							subCategory
+							setFilterQuery={() =>
+								handleQueryChange([
+									...filterQuery,
+									subCategory.key,
+								])
+							}
+						/>
+					))}
+				</section>
+			)}
 		</div>
 	);
 }

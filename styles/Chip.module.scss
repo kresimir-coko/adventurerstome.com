@@ -1,9 +1,9 @@
 @import './variables.module.scss';
 
 .chip {
-	border: 2px solid #ccc;
+	border: 2px solid #fff;
 	border-radius: 16px;
-	color: #333;
+	color: #fff;
 	display: inline-block;
 	font-family: 'Alegreya Sans SC';
 	font-weight: bold;
@@ -12,6 +12,22 @@
 
 	&:not(:last-child) {
 		margin-right: 8px;
+	}
+
+	&.selected {
+		background-color: $primary-color;
+		border-color: $primary-color;
+		color: #fff;
+	}
+
+	&.subCategoryChip {
+		background-color: $secondary-color;
+		border-color: $secondary-color;
+
+		&.selected {
+			background-color: $primary-color;
+			border-color: $primary-color;
+		}
 	}
 
 	&:hover {
