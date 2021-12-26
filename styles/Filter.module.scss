@@ -14,16 +14,13 @@
 
 	.mainCategories {
 		background-color: $secondary-color;
-		border: 6px solid transparent;
 		border-radius: 10px;
 		box-shadow: $box-shadow-med;
 	}
 
 	.subCategories {
-		background-color: #fff;
-		border: 6px solid $secondary-color;
+		background-color: $secondary-color;
 		border-radius: 0 0 10px 10px;
-		box-shadow: $box-shadow-med;
 		margin-top: -8px;
 		transition: all 0.2s ease-in-out;
 		width: auto;

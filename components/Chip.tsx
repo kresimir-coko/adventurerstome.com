@@ -3,35 +3,21 @@ import styles from '../styles/Chip.module.scss';
 
 export default function Chip({
 	category,
-	filterQuery,
-	setFilterQuery,
+	onClick,
 	selected,
-	subCategory,
+	isSubCategory,
 }: {
 	category: Object;
-	filterQuery: string[];
-	setFilterQuery: (arg: string[]) => void;
+	onClick: Function;
 	selected: boolean;
-	subCategory: boolean;
+	isSubCategory: boolean;
 }): JSX.Element {
 	return (
 		<span
 			className={`${styles.chip} ${selected && styles.selected} ${
-				subCategory && styles.subCategoryChip
+				isSubCategory && styles.subCategoryChip
 			}`}
-			onClick={() => {
-				if (!filterQuery.includes(category.key)) {
-					setFilterQuery([category.key]);
-				} else {
-					console.log(
-						'else :',
-						filterQuery.filter((query) => query !== category.key)
-					);
-					setFilterQuery(
-						filterQuery.filter((query) => query !== category.key)
-					);
-				}
-			}}
+			onClick={onClick}
 		>
 			{category.label}
 		</span>

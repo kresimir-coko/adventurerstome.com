@@ -5,12 +5,16 @@ import Chip from './Chip';
 
 export default function Filter({
 	categories,
-	filterQuery,
-	handleQueryChange,
+	mainCategory,
+	subCategory,
+	setMainCategory,
+	setSubCategory,
 }: {
 	categories: object[];
-	filterQuery: string[];
-	handleQueryChange: any;
+	mainCategory: string | undefined;
+	subCategory: string | undefined;
+	setMainCategory: (arg: string) => void;
+	setSubCategory: (arg: string) => void;
 }) {
 	return (
 		<div className={styles.filter}>
@@ -20,30 +24,29 @@ export default function Filter({
 				{categories.map((category) => (
 					<Chip
 						category={category}
-						filterQuery={filterQuery}
 						key={category.key}
-						setFilterQuery={handleQueryChange}
-						selected={filterQuery.includes(category.key)}
-						subCategory={false}
+						selected={mainCategory === category.key}
+						isSubCategory={false}
+						onClick={() => setMainCategory(category.key)}
 					/>
 				))}
 			</section>
 
-			{filterQuery.includes('maps') && (
+			{mainCategory === 'maps' && (
 				<section className={styles.subCategories}>
-					{categories[0].subCategories.map((subCategory) => (
+					{categories[0].subCategories.map((category) => (
 						<Chip
-							category={subCategory}
-							filterQuery={filterQuery}
-							key={subCategory.key}
-							selected={filterQuery.includes(subCategory.key)}
-							subCategory
-							setFilterQuery={() =>
-								handleQueryChange([
-									...filterQuery,
-									subCategory.key,
-								])
-							}
+							category={category}
+							key={category.key}
+							selected={subCategory === category.key}
+							isSubCategory
+							onClick={() => {
+								if (subCategory !== category.key) {
+									setSubCategory(category.key);
+								} else {
+									setSubCategory(undefined);
+								}
+							}}
 						/>
 					))}
 				</section>

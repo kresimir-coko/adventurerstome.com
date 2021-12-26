@@ -5,7 +5,8 @@ import Filter from '../components/Filter';
 import {useState} from 'react';
 
 export default function Home({categories, posts, photos}) {
-	const [filterQuery, setFilterQuery] = useState([]);
+	const [mainCategory, setMainCategory] = useState();
+	const [subCategory, setSubCategory] = useState();
 
 	return (
 		<>
@@ -16,8 +17,10 @@ export default function Home({categories, posts, photos}) {
 
 				<Filter
 					categories={categories}
-					filterQuery={filterQuery}
-					handleQueryChange={setFilterQuery}
+					mainCategory={mainCategory}
+					setMainCategory={setMainCategory}
+					setSubCategory={setSubCategory}
+					subCategory={subCategory}
 				/>
 
 				<LandingPostList posts={posts} images={photos} />
