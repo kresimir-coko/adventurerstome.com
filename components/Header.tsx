@@ -20,20 +20,22 @@ function Header() {
 					<ul className={styles.navList}>
 						<li className={styles.navItem}>
 							<Link href="/posts">
-								<a className={styles.navLink}>Maps</a>
-							</Link>
-						</li>
-
-						<li className={styles.navItem}>
-							<Link href="/posts">
-								<a className={styles.navLink}>Items</a>
+								<a className={styles.navLink}>{'Maps'}</a>
 							</Link>
 						</li>
 
 						<li className={styles.navItem}>
 							<Link href="/posts">
 								<a className={styles.navLink}>
-									One Page Dungeons
+									{'Items & One-page dungeons'}
+								</a>
+							</Link>
+						</li>
+
+						<li className={styles.navItem}>
+							<Link href="/posts">
+								<a className={styles.navLink}>
+									{'About the Tome'}
 								</a>
 							</Link>
 						</li>
@@ -41,6 +43,7 @@ function Header() {
 						<li className={styles.navItem}>
 							<a
 								className={styles.navLink}
+								target={'_blank'}
 								href="https://www.patreon.com/adventurerstome"
 							>
 								Patreon

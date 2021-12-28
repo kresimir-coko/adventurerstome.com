@@ -5,6 +5,7 @@ function posts({posts}) {
 	return (
 		<div>
 			{'posts'}
+
 			<ul>
 				{posts.map((post) => (
 					<li key={post.id}>

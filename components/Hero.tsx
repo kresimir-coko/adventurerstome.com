@@ -17,7 +17,7 @@ function Hero() {
 							}
 						</p>
 
-						<Link href="/">
+						<Link href="/posts">
 							<a className={styles.cta}>{'Browse maps!'}</a>
 						</Link>
 					</div>
