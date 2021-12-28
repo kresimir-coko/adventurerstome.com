@@ -14,8 +14,8 @@ export default function Chip({
 }): JSX.Element {
 	return (
 		<span
-			className={`chip ${selected && styles.selected} ${
-				isSubCategory && styles.subCategoryChip
+			className={`chip ${selected ? styles.selected : ''} ${
+				isSubCategory ? styles.subCategoryChip : ''
 			}`}
 			onClick={onClick}
 		>
