@@ -19,7 +19,7 @@ function Header() {
 				<nav className={styles.nav}>
 					<ul className={styles.navList}>
 						<li className={styles.navItem}>
-							<Link href="/posts">
+							<Link href="/maps">
 								<a className={styles.navLink}>{'Maps'}</a>
 							</Link>
 						</li>

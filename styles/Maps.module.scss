@@ -1,0 +1,71 @@
+@import 'variables.module.scss';
+
+.mapsViewContainer {
+	flex-direction: row;
+	height: calc(100vh - 81px - 64px);
+	overflow-y: hidden;
+}
+
+.smallView {
+	background-color: #eee;
+	height: 100%;
+	overflow-y: scroll;
+	padding: 16px;
+	width: 20%;
+
+	li {
+		margin-bottom: 16px;
+
+		&:hover {
+			color: $primary-color;
+			cursor: pointer;
+			transition: all 0.1s ease-in-out;
+
+			img {
+				border-color: $primary-color;
+				transition: all 0.1s ease-in-out;
+			}
+		}
+	}
+
+	h4 {
+		padding: 0;
+		text-align: center;
+	}
+
+	img {
+		border: 3px solid #fff;
+		border-radius: 16px;
+		box-shadow: $box-shadow-med;
+		width: 100%;
+	}
+}
+
+.bigView {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	width: 80%;
+
+	.interactive {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	.viewButton {
+		background-color: $secondary-color;
+		color: #fff;
+
+		&:hover {
+			background-color: $primary-color;
+		}
+	}
+
+	img {
+		height: calc(100% - 35px);
+		width: auto;
+	}
+}
