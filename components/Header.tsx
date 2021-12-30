@@ -45,6 +45,7 @@ function Header() {
 								className={styles.navLink}
 								target={'_blank'}
 								href="https://www.patreon.com/adventurerstome"
+								rel="noreferrer"
 							>
 								Patreon
 							</a>

@@ -2,9 +2,19 @@ import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/LandingPosts.module.scss';
 
-function LandingPost({body, id, title, photo}) {
+function LandingPost({
+	body,
+	id,
+	title,
+	photo,
+}: {
+	body: string;
+	id: number;
+	title: string;
+	photo: string;
+}): JSX.Element {
 	return (
-		<Link href={`/posts/${id}`}>
+		<Link href={`/maps/${id}`}>
 			<div className={styles.landingPost} id={`post${id}`}>
 				<header>
 					<h2 className={styles.postHeading}>{title}</h2>

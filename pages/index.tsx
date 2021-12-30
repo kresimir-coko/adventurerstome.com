@@ -4,7 +4,25 @@ import Testimonials from '../components/Testimonials';
 import Filter from '../components/Filter';
 import {useState} from 'react';
 
-export default function Home({categories, posts, photos}) {
+export default function Home({
+	categories,
+	posts,
+	photos,
+}: {
+	categories: {
+		key: string;
+		label: string;
+		subCategories?: [{key: string; label: string}];
+	}[];
+	posts: {
+		body: string;
+		id: number;
+		title: string;
+	}[];
+	photos: {
+		thumbnailUrl: string;
+	}[];
+}) {
 	const [mainCategory, setMainCategory] = useState();
 	const [subCategory, setSubCategory] = useState();
 

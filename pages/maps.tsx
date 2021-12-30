@@ -2,12 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/Maps.module.scss';
 
-export default function maps({maps}) {
+export default function maps({maps}: {maps: any}) {
 	return (
 		<div className={`main-container ${styles.mapsViewContainer}`}>
 			<section className={styles.smallView}>
 				<ul>
-					{maps.map((map) => (
+					{maps.map((map: any) => (
 						<li key={map.id}>
 							<h4>{'Cathedral of the Silver King'}</h4>
 
@@ -23,7 +23,9 @@ export default function maps({maps}) {
 			<section className={styles.bigView}>
 				<div className={styles.interactive}>
 					<Link href="/maps">
-						<button className={styles.viewButton}>{'View Post'}</button>
+						<button className={styles.viewButton}>
+							{'View Post'}
+						</button>
 					</Link>
 
 					<div className="mapDownloadButtons">

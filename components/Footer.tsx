@@ -11,6 +11,7 @@ function Footer() {
 						<a
 							className={styles.footerNavLink}
 							href="https://www.artstation.com/adventurerstome"
+							rel="noreferrer"
 							target="_blank"
 						>
 							<FaArtstation />
@@ -20,6 +21,7 @@ function Footer() {
 						<a
 							className={styles.footerNavLink}
 							href="https://www.instagram.com/adventurerstome"
+							rel="noreferrer"
 							target="_blank"
 						>
 							<FaInstagram />
@@ -29,6 +31,7 @@ function Footer() {
 						<a
 							className={styles.footerNavLink}
 							href="https://www.patreon.com/adventurerstome"
+							rel="noreferrer"
 							target="_blank"
 						>
 							<FaPatreon />
@@ -38,6 +41,7 @@ function Footer() {
 						<a
 							className={styles.footerNavLink}
 							href="https://www.twitter.com/adventurerstome"
+							rel="noreferrer"
 							target="_blank"
 						>
 							<FaTwitter />

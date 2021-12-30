@@ -2,12 +2,9 @@ import styles from '../../styles/Map.module.scss';
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import Link from 'next/link';
 
-export default function Maps({map, maps}) {
+export default function Maps({map, maps}: {map: any; maps: any}) {
 	const isFirstMap = map.id === maps[0].id;
 	const isLastMap = map.id === maps.length;
-
-	console.log('isFirstMap:', isFirstMap);
-	console.log('isLastMap: ', isLastMap);
 
 	return (
 		<div className={`${styles.mapContainer} main-container`}>
@@ -18,7 +15,7 @@ export default function Maps({map, maps}) {
 			>
 				{!isFirstMap && (
 					<div className={styles.mapNavigation}>
-						<Link href={`/maps/${map.id - 1}`}>
+						<Link href={`/maps/${map.id - 1}`} passHref>
 							<FaChevronLeft size={42} />
 						</Link>
 					</div>
@@ -91,14 +88,14 @@ export async function getStaticPaths() {
 	);
 	const maps = await res.json();
 
-	const paths = maps.map((map) => ({
+	const paths = maps.map((map: any) => ({
 		params: {id: map.id.toString()},
 	}));
 
 	return {paths, fallback: false};
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params}: {params: any}) {
 	const mapResponse = await fetch(
 		`https://jsonplaceholder.typicode.com/posts/${params.id}`
 	);

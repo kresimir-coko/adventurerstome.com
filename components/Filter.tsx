@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import {FaFilter} from 'react-icons/fa';
 import styles from '../styles/Filter.module.scss';
 import Chip from './Chip';
@@ -10,11 +10,15 @@ export default function Filter({
 	setMainCategory,
 	setSubCategory,
 }: {
-	categories: object[];
+	categories: {
+		key: string;
+		label: string;
+		subCategories?: [{key: string; label: string}];
+	}[];
 	mainCategory: string | undefined;
 	subCategory: string | undefined;
-	setMainCategory: (arg: string) => void;
-	setSubCategory: (arg: string) => void;
+	setMainCategory: any;
+	setSubCategory: any;
 }) {
 	return (
 		<div className={styles.filter}>
@@ -34,7 +38,7 @@ export default function Filter({
 
 			{mainCategory === 'maps' && (
 				<section className={styles.subCategories}>
-					{categories[0].subCategories.map((category) => (
+					{categories[0].subCategories?.map((category) => (
 						<Chip
 							category={category}
 							key={category.key}
