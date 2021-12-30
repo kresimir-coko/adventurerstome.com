@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MouseEventHandler} from 'react';
 import styles from '../styles/Chip.module.scss';
 
 export default function Chip({
