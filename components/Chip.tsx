@@ -8,7 +8,7 @@ export default function Chip({
 	isSubCategory,
 }: {
 	category: Object;
-	onClick: Function;
+	onClick: MouseEventHandler<HTMLSpanElement>;
 	selected: boolean;
 	isSubCategory: boolean;
 }): JSX.Element {
