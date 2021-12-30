@@ -7,7 +7,11 @@ export default function Chip({
 	selected,
 	isSubCategory,
 }: {
-	category: Object;
+	category: {
+		key: string;
+		label: string;
+		subCategories?: [{key: string; label: string}];
+	};
 	onClick: MouseEventHandler<HTMLSpanElement>;
 	selected: boolean;
 	isSubCategory: boolean;
