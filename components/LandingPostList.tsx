@@ -4,26 +4,26 @@ import styles from '../styles/LandingPosts.module.scss';
 
 export default function LandingPostList({
 	posts,
-	images,
 }: {
 	posts: {
-		body: string;
-		id: number;
-		title: string;
-	}[];
-	images: {
-		thumbnailUrl: string;
+		post: {
+			category: string;
+			date: string;
+			excerpt: string;
+			subCategory: string;
+			thumbnailUrl: string;
+			title: string;
+		};
+		slug: string;
 	}[];
 }) {
 	return (
 		<div className={styles.landingPostList}>
-			{posts.map((post, index) => (
+			{posts.map((post) => (
 				<LandingPost
-					body={post.body}
-					id={post.id}
-					photo={images[index].thumbnailUrl}
-					key={post.id}
-					title={post.title}
+					post={post.post}
+					key={post.slug}
+					slug={post.slug}
 				/>
 			))}
 		</div>

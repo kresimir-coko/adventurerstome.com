@@ -2,52 +2,61 @@ import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/LandingPosts.module.scss';
 
-function LandingPost({
-	body,
-	id,
-	title,
-	photo,
+export default function LandingPost({
+	post,
+	slug,
 }: {
-	body: string;
-	id: number;
-	title: string;
-	photo: string;
+	post: {
+		category: string;
+		date: string;
+		excerpt: string;
+		subCategory: string;
+		thumbnailUrl: string;
+		title: string;
+	};
+	slug: string;
 }): JSX.Element {
+	console.log('post: ', post);
+
 	return (
-		<Link href={`/maps/${id}`}>
-			<div className={styles.landingPost} id={`post${id}`}>
+		<Link href={`/maps/${slug}`}>
+			<div className={styles.landingPost}>
 				<header>
-					<h2 className={styles.postHeading}>{title}</h2>
+					<h2 className={styles.postHeading}>{post.title}</h2>
 				</header>
 
-				<img alt={title} className={styles.postImage} src={photo} />
+				<img
+					alt={post.title}
+					className={styles.postImage}
+					src={post.thumbnailUrl}
+				/>
 
 				<footer>
 					<section>
 						<ul className={styles.postCategoriesContainer}>
 							<li className={styles.postCategory}>
-								<Link href="/map">
-									<a>map</a>
+								<Link href={`/${post.category}`}>
+									<a>{post.category}</a>
 								</Link>
 							</li>
 
-							<li className={styles.postCategory}>
-								<Link href="/map">
-									<a>cave</a>
-								</Link>
-							</li>
+							{post.subCategory && (
+								<li className={styles.postCategory}>
+									<Link href={`/${post.subCategory}`}>
+										<a>{post.subCategory}</a>
+									</Link>
+								</li>
+							)}
 						</ul>
 
-						<span className={styles.postDate}>{'27.12.1993.'}</span>
+						<span className={styles.postDate}>{post.date}</span>
 					</section>
 
 					<section>
-						<p className={styles.postExcerpt}>{body}</p>
+						<p className={styles.postExcerpt}>{post.excerpt}</p>
 					</section>
 				</footer>
 			</div>
 		</Link>
 	);
 }
-
-export default LandingPost;

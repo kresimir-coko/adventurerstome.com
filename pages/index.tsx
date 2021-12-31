@@ -3,11 +3,13 @@ import LandingPostList from '../components/LandingPostList';
 import Testimonials from '../components/Testimonials';
 import Filter from '../components/Filter';
 import {useState} from 'react';
+import path from 'path';
+
+const fs = require('fs');
 
 export default function Home({
 	categories,
 	posts,
-	photos,
 }: {
 	categories: {
 		key: string;
@@ -15,12 +17,15 @@ export default function Home({
 		subCategories?: [{key: string; label: string}];
 	}[];
 	posts: {
-		body: string;
-		id: number;
-		title: string;
-	}[];
-	photos: {
-		thumbnailUrl: string;
+		post: {
+			category: string;
+			date: string;
+			excerpt: string;
+			subCategory: string;
+			thumbnailUrl: string;
+			title: string;
+		};
+		slug: string;
 	}[];
 }) {
 	const [mainCategory, setMainCategory] = useState();
@@ -41,24 +46,27 @@ export default function Home({
 					subCategory={subCategory}
 				/>
 
-				<LandingPostList posts={posts} images={photos} />
+				<LandingPostList posts={posts} />
 			</div>
 		</>
 	);
 }
 
-export async function getStaticProps() {
-	const resPosts = await fetch(
-		'https://jsonplaceholder.typicode.com/posts?_limit=12'
-	);
+export const getStaticProps = async () => {
+	const files = fs.readdirSync(path.join('posts'));
 
-	const posts = await resPosts.json();
+	const posts = files.map((filename: string) => {
+		const post = JSON.parse(
+			fs.readFileSync(path.join('posts', filename), 'utf-8')
+		);
 
-	const resPhotos = await fetch(
-		'https://jsonplaceholder.typicode.com/albums/1/photos'
-	);
+		console.log('post: ', post);
 
-	const photos = await resPhotos.json();
+		return {
+			post,
+			slug: filename.split('.')[0],
+		};
+	});
 
 	const categories = [
 		{
@@ -101,7 +109,6 @@ export async function getStaticProps() {
 		props: {
 			categories,
 			posts,
-			photos,
 		},
 	};
-}
+};
