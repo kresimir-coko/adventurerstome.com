@@ -1,16 +1,17 @@
 import styles from '../../styles/Map.module.scss';
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import Link from 'next/link';
-import matter from 'gray-matter';
 import path from 'path';
-import {serialize} from 'next-mdx-remote/serialize';
-import {MDXRemote} from 'next-mdx-remote';
 
 const fs = require('fs');
 
 export default function Maps({posts, slug}: {posts: any; slug: string}) {
 	const isFirstMap = false; // todo: fix logic
 	const isLastMap = false; // todo: fix logic
+
+	const post = posts.find(({post}: any) => post.slug === slug);
+
+	console.log('post: ', post);
 
 	return (
 		<div className={`${styles.mapContainer} main-container`}>
@@ -67,24 +68,9 @@ export default function Maps({posts, slug}: {posts: any; slug: string}) {
 			</section>
 
 			<section className={styles.mapContent}>
-				<p className={styles.mapLore}>
-					{`Lore: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Veritatis voluptatibus beatae, similique repudiandae
-					perferendis quas magnam et nulla odio atque quis cum
-					excepturi minus aperiam nesciunt sapiente at iusto sed.
-					
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Veritatis voluptatibus beatae, similique repudiandae
-					perferendis quas magnam et nulla odio atque quis cum
-					excepturi minus aperiam nesciunt sapiente at iusto sed`}
-				</p>
+				<p className={styles.mapLore}>{`Lore`}</p>
 
-				<p className={styles.mapNote}>
-					{`Resolutions: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Veritatis voluptatibus beatae, similique repudiandae
-					perferendis quas magnam et nulla odio atque quis cum
-					excepturi minus aperiam nesciunt sapiente at iusto sed.`}
-				</p>
+				<p className={styles.mapNote}>{`Resolutions`}</p>
 			</section>
 		</div>
 	);
@@ -95,7 +81,7 @@ export async function getStaticPaths() {
 
 	const paths = files.map((filename: string) => ({
 		params: {
-			slug: filename.replace('.mdx', ''),
+			slug: filename.replace('.json', ''),
 		},
 	}));
 
@@ -116,11 +102,8 @@ export const getStaticProps = async ({
 			fs.readFileSync(path.join('posts', filename), 'utf-8')
 		);
 
-		console.log('post: ', post);
-
 		return {
-			post,
-			slug: filename.split('.')[0],
+			post: Object.assign(post, {slug: filename.split('.')[0]}),
 		};
 	});
 

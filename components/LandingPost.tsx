@@ -16,8 +16,6 @@ export default function LandingPost({
 	};
 	slug: string;
 }): JSX.Element {
-	console.log('post: ', post);
-
 	return (
 		<Link href={`/maps/${slug}`}>
 			<div className={styles.landingPost}>

@@ -1,9 +1,13 @@
 {
 	"category": "map",
 	"date": "December 27, 2021",
-	"excerpt": "lorem ipsum",
-	"lore": "lorem ipsum",
-	"title": "Monument of the Untainted",
-	"thumbnailUrl": "/logo.png",
-	"subCategory": "monument"
+	"downloadBlackAndWhiteUrl": "https://www.adventurerstome.com",
+	"downloadColorUrl": "https://www.adventurerstome.com",
+	"excerpt": "A place of worship, dark scheming, black magic and sacrifice",
+	"lore": "A place of worship, dark scheming, black magic and sacrifice. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed",
+	"note": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed.",
+	"title": "Smuggler's Cove",
+	"thumbnailUrl": "/smugglers-cove.png",
+	"subCategory": "cave",
+	"coverImg": "/smugglers-cove.png"
 }

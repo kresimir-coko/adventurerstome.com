@@ -60,8 +60,6 @@ export const getStaticProps = async () => {
 			fs.readFileSync(path.join('posts', filename), 'utf-8')
 		);
 
-		console.log('post: ', post);
-
 		return {
 			post,
 			slug: filename.split('.')[0],

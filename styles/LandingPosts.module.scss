@@ -13,6 +13,7 @@
 	margin-right: 24px;
 	max-width: calc(1328px / 4);
 	position: relative;
+	width: 25%;
 
 	&:nth-of-type(4n) {
 		margin-right: 0;
@@ -93,6 +94,7 @@
 		bottom: -24px;
 		height: 100%;
 		left: 0;
+		object-fit: cover;
 		position: absolute;
 		right: 0;
 		top: 0;
