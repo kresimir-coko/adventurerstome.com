@@ -7,9 +7,10 @@
 	width: 100%;
 
 	.mapMainSection {
-		display: flex;
 		align-items: center;
+		display: flex;
 		justify-content: center;
+		width: 100%;
 
 		&.firstMap {
 			margin-left: auto;
@@ -41,12 +42,13 @@
 	position: relative;
 	max-width: 1080px;
 	width: 100%;
+	height: 75vh;
 
 	img {
 		border-radius: 48px;
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		display: block;
-		object-fit: contain;
+		object-fit: cover;
 		margin: 0 auto;
 		width: 100%;
 	}

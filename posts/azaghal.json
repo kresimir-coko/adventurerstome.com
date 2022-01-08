@@ -1,5 +1,5 @@
 {
-	"category": "map",
+	"category": "item",
 	"date": "December 27, 2021",
 	"downloadBlackAndWhiteUrl": "https://www.adventurerstome.com",
 	"downloadColorUrl": "https://www.adventurerstome.com",
@@ -8,6 +8,5 @@
 	"note": "The colored version is smaller in scale due to its file-size so the grid size for that variant is 75x75px. As for the black & white variant, it's at its native resolution so the grid is at 150x150px size.",
 	"title": "Azaghal",
 	"thumbnailUrl": "/azaghal.png",
-	"subCategory": "building",
 	"coverImg": "/azaghal.png"
 }

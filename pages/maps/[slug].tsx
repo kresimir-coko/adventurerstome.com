@@ -2,16 +2,17 @@ import styles from '../../styles/Map.module.scss';
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import Link from 'next/link';
 import path from 'path';
+import Image from 'next/image';
 
 const fs = require('fs');
 
-export default function Maps({posts, slug}: {posts: any; slug: string}) {
-	const isFirstMap = false; // todo: fix logic
-	const isLastMap = false; // todo: fix logic
+export default function Maps({maps, slug}: {maps: any; slug: string}) {
+	const map = maps.find((map: any) => map.slug === slug);
 
-	const post = posts.find(({post}: any) => post.slug === slug);
+	const isFirstMap = maps[0].slug === map.slug;
+	const isLastMap = maps[maps.length - 1].slug === map.slug;
 
-	console.log('post: ', post);
+	const currentMapIndex = maps.findIndex((map: any) => map.slug === slug);
 
 	return (
 		<div className={`${styles.mapContainer} main-container`}>
@@ -22,26 +23,24 @@ export default function Maps({posts, slug}: {posts: any; slug: string}) {
 			>
 				{!isFirstMap && (
 					<div className={styles.mapNavigation}>
-						<Link href={`/maps`} passHref>
-							{/* todo: fix logic */}
+						<Link
+							href={`/maps/${maps[currentMapIndex - 1].slug}`}
+							passHref
+						>
 							<FaChevronLeft size={42} />
 						</Link>
 					</div>
 				)}
 
 				<div className={styles.map}>
-					{/* <h1 className={styles.heading}>{post.title}</h1> */}
+					<h1 className={styles.heading}>{map.title}</h1>
 
-					<img
-						src="https://c10.patreonusercontent.com/3/eyJxIjoxMDAsIndlYnAiOjB9/patreon-media/p/post/51259883/8054c1f4358a4883ab00d82a6e5c1e14/1.png?token-time=1641600000&token-hash=o2pch9BB3qooXu_UAr3U6CY9503qMb-ovJKCBRWEcSk%3D"
-						alt=""
-					/>
+					<Image src={map.coverImg} layout="fill" />
 				</div>
 
 				{!isLastMap && (
 					<div className={styles.mapNavigation}>
-						<Link href={`/maps`}>
-							{/* todo: fix logic */}
+						<Link href={`/maps/${maps[currentMapIndex + 1].slug}`}>
 							<FaChevronRight size={42} />
 						</Link>
 					</div>
@@ -50,8 +49,8 @@ export default function Maps({posts, slug}: {posts: any; slug: string}) {
 
 			<section className={styles.mapMetadata}>
 				<div className={styles.mapCategories}>
-					<span className="chip">{'#map'}</span>
-					<span className="chip">{'#ruin'}</span>
+					<span className="chip">{map.category}</span>
+					<span className="chip">{map.subCategory}</span>
 				</div>
 
 				<div className="mapDownloadButtons">
@@ -63,14 +62,14 @@ export default function Maps({posts, slug}: {posts: any; slug: string}) {
 				</div>
 
 				<div className={styles.mapDate}>
-					<span>{'Posted on 27th December 2021'}</span>
+					<span>{`Posted on ${map.date}`}</span>
 				</div>
 			</section>
 
 			<section className={styles.mapContent}>
-				<p className={styles.mapLore}>{`Lore`}</p>
+				<p className={styles.mapLore}>{map.lore}</p>
 
-				<p className={styles.mapNote}>{`Resolutions`}</p>
+				<p className={styles.mapNote}>{map.note}</p>
 			</section>
 		</div>
 	);
@@ -102,14 +101,14 @@ export const getStaticProps = async ({
 			fs.readFileSync(path.join('posts', filename), 'utf-8')
 		);
 
-		return {
-			post: Object.assign(post, {slug: filename.split('.')[0]}),
-		};
+		return Object.assign(post, {slug: filename.split('.')[0]});
 	});
+
+	const maps = posts.filter((post: any) => post.category === 'map');
 
 	return {
 		props: {
-			posts,
+			maps,
 			slug,
 		},
 	};
