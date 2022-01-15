@@ -45,6 +45,10 @@
 			display: flex;
 			padding: 24px;
 
+			&.active {
+				color: $secondary-color;
+			}
+
 			&:hover {
 				color: $secondary-color;
 			}

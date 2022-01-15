@@ -8,8 +8,13 @@ export default function LandingPost({
 }: {
 	post: {
 		category: string;
+		coverImg: string;
 		date: string;
+		downloadBlackAndWhiteUrl: string;
+		downloadColorUrl: string;
 		excerpt: string;
+		lore: string;
+		note: string;
 		subCategory: string;
 		thumbnailUrl: string;
 		title: string;

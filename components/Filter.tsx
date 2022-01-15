@@ -31,7 +31,14 @@ export default function Filter({
 						key={category.key}
 						selected={mainCategory === category.key}
 						isSubCategory={false}
-						onClick={() => setMainCategory(category.key)}
+						onClick={() => {
+							if (mainCategory) {
+								setMainCategory('');
+								setSubCategory('');
+							} else {
+								setMainCategory(category.key);
+							}
+						}}
 					/>
 				))}
 			</section>

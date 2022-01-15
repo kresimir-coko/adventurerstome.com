@@ -13,11 +13,15 @@
 		width: 100%;
 
 		&.firstMap {
-			margin-left: auto;
+			.map {
+				margin-left: auto;
+			}
 		}
 
 		&.lastMap {
-			margin-right: auto;
+			.map {
+				margin-right: auto;
+			}
 		}
 	}
 }

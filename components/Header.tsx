@@ -3,8 +3,11 @@ import styles from '../styles/Header.module.scss';
 import Image from 'next/image';
 import logo from '../public/logo.png';
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 
 function Header() {
+	const router = useRouter();
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.headerContainer}>
@@ -20,22 +23,56 @@ function Header() {
 					<ul className={styles.navList}>
 						<li className={styles.navItem}>
 							<Link href="/maps">
-								<a className={styles.navLink}>{'Maps'}</a>
-							</Link>
-						</li>
-
-						<li className={styles.navItem}>
-							<Link href="/posts">
-								<a className={styles.navLink}>
-									{'Items & One-page dungeons'}
+								<a
+									className={`${styles.navLink} ${
+										router.pathname === '/maps'
+											? styles.active
+											: ''
+									}`}
+								>
+									{'Maps'}
 								</a>
 							</Link>
 						</li>
 
 						<li className={styles.navItem}>
-							<Link href="/posts">
-								<a className={styles.navLink}>
-									{'About the Tome'}
+							<Link href="/items">
+								<a
+									className={`${styles.navLink} ${
+										router.pathname === '/items'
+											? styles.active
+											: ''
+									}`}
+								>
+									{'Items'}
+								</a>
+							</Link>
+						</li>
+
+						<li className={styles.navItem}>
+							<Link href="/dungeons">
+								<a
+									className={`${styles.navLink} ${
+										router.pathname === '/dungeons'
+											? styles.active
+											: ''
+									}`}
+								>
+									{'Dungeons'}
+								</a>
+							</Link>
+						</li>
+
+						<li className={styles.navItem}>
+							<Link href="/about">
+								<a
+									className={`${styles.navLink} ${
+										router.pathname === '/about'
+											? styles.active
+											: ''
+									}`}
+								>
+									{'About'}
 								</a>
 							</Link>
 						</li>

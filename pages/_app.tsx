@@ -11,8 +11,3 @@ function MyApp({Component, pageProps}: AppProps) {
 }
 
 export default MyApp;
-
-// todo:
-// - keep posts for a combo of all posts
-// - add markup for /about
-// - fix design of testimonials

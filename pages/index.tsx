@@ -17,15 +17,17 @@ export default function Home({
 		subCategories?: [{key: string; label: string}];
 	}[];
 	posts: {
-		post: {
-			category: string;
-			date: string;
-			excerpt: string;
-			subCategory: string;
-			thumbnailUrl: string;
-			title: string;
-		};
-		slug: string;
+		category: string;
+		coverImg: string;
+		date: string;
+		downloadBlackAndWhiteUrl: string;
+		downloadColorUrl: string;
+		excerpt: string;
+		lore: string;
+		note: string;
+		subCategory: string;
+		thumbnailUrl: string;
+		title: string;
 	}[];
 }) {
 	const [mainCategory, setMainCategory] = useState();
@@ -46,7 +48,11 @@ export default function Home({
 					subCategory={subCategory}
 				/>
 
-				<LandingPostList posts={posts} />
+				<LandingPostList
+					posts={posts}
+					mainCategory={mainCategory}
+					subCategory={subCategory}
+				/>
 			</div>
 		</>
 	);
@@ -60,10 +66,7 @@ export const getStaticProps = async () => {
 			fs.readFileSync(path.join('posts', filename), 'utf-8')
 		);
 
-		return {
-			post,
-			slug: filename.split('.')[0],
-		};
+		return post;
 	});
 
 	const categories = [
@@ -87,6 +90,10 @@ export const getStaticProps = async () => {
 					key: 'monument',
 					label: 'Monument',
 				},
+				{
+					key: 'wilderness',
+					label: 'Wilderness',
+				},
 			],
 		},
 		{
@@ -96,10 +103,6 @@ export const getStaticProps = async () => {
 		{
 			key: 'weapons',
 			label: 'Weapons',
-		},
-		{
-			key: 'mechanics',
-			label: 'Mechanics',
 		},
 	];
 
