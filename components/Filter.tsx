@@ -34,6 +34,7 @@ export default function Filter({
 						onClick={() => {
 							if (mainCategory) {
 								setMainCategory('');
+
 								setSubCategory('');
 							} else {
 								setMainCategory(category.key);

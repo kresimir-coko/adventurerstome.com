@@ -64,8 +64,9 @@
 		}
 	}
 
-	img {
+	.bigImageContainer {
 		height: calc(100% - 35px);
-		width: auto;
+		position: relative;
+		width: 100%;
 	}
 }

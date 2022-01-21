@@ -1,28 +1,72 @@
 import Link from 'next/link';
-import React from 'react';
+import Image from 'next/image';
+import React, {useState} from 'react';
 import styles from '../styles/Maps.module.scss';
+import path from 'path';
 
-export default function maps({maps}: {maps: any}) {
+const fs = require('fs');
+
+export default function maps({
+	maps,
+}: {
+	maps: {
+		category: string;
+		coverImg: string;
+		date: string;
+		downloadBlackAndWhiteUrl: string;
+		downloadColorUrl: string;
+		excerpt: string;
+		lore: string;
+		note: string;
+		subCategory: string;
+		thumbnailUrl: string;
+		title: string;
+	}[];
+}) {
+	const [currentMap, setCurrentMap] = useState(maps[0]);
+
 	return (
 		<div className={`main-container ${styles.mapsViewContainer}`}>
 			<section className={styles.smallView}>
 				<ul>
-					{maps.map((map: any) => (
-						<li key={map.id}>
-							<h4>{'Cathedral of the Silver King'}</h4>
+					{maps.map(
+						(map: {
+							category: string;
+							coverImg: string;
+							date: string;
+							downloadBlackAndWhiteUrl: string;
+							downloadColorUrl: string;
+							excerpt: string;
+							lore: string;
+							note: string;
+							subCategory: string;
+							thumbnailUrl: string;
+							title: string;
+						}) => (
+							<li
+								key={map.title}
+								onClick={() => setCurrentMap(map)}
+							>
+								<h4>{map.title}</h4>
 
-							<img
-								src="https://c10.patreonusercontent.com/3/eyJxIjoxMDAsIndlYnAiOjB9/patreon-media/p/post/51259883/8054c1f4358a4883ab00d82a6e5c1e14/1.png?token-time=1641600000&token-hash=o2pch9BB3qooXu_UAr3U6CY9503qMb-ovJKCBRWEcSk%3D"
-								alt=""
-							/>
-						</li>
-					))}
+								<div className={styles.smallImageContainer}>
+									<Image
+										alt={map.title}
+										height={100}
+										layout="responsive"
+										src={map.coverImg}
+										width={100}
+									/>
+								</div>
+							</li>
+						)
+					)}
 				</ul>
 			</section>
 
 			<section className={styles.bigView}>
 				<div className={styles.interactive}>
-					<Link href="/maps">
+					<Link href={`/maps/${currentMap.title}`}>
 						<button className={styles.viewButton}>
 							{'View Post'}
 						</button>
@@ -31,26 +75,42 @@ export default function maps({maps}: {maps: any}) {
 					<div className="mapDownloadButtons">
 						<span>{'Download'}</span>
 
-						<button>{'Black & White'}</button>
+						<a href="http://localhost:3000/public/bw/">
+							{'Black & White'}
+						</a>
 
-						<button>{'Color'}</button>
+						<a href="http://localhost:3000/public/color/">
+							{'Color'}
+						</a>
 					</div>
 				</div>
-				<img
-					src="https://c10.patreonusercontent.com/3/eyJxIjoxMDAsIndlYnAiOjB9/patreon-media/p/post/51259883/8054c1f4358a4883ab00d82a6e5c1e14/1.png?token-time=1641600000&token-hash=o2pch9BB3qooXu_UAr3U6CY9503qMb-ovJKCBRWEcSk%3D"
-					alt=""
-				/>
+
+				<div className={styles.bigImageContainer}>
+					<Image
+						alt={currentMap.title}
+						height={100}
+						layout="responsive"
+						src={currentMap.coverImg}
+						width={100}
+					/>
+				</div>
 			</section>
 		</div>
 	);
 }
 
 export async function getStaticProps() {
-	const res = await fetch(
-		'https://jsonplaceholder.typicode.com/posts?_limit=12'
-	);
+	const files = fs.readdirSync(path.join('posts'));
 
-	const maps = await res.json();
+	const posts = files.map((filename: string) => {
+		const post = JSON.parse(
+			fs.readFileSync(path.join('posts', filename), 'utf-8')
+		);
+
+		return post;
+	});
+
+	const maps = posts.filter((post: any) => post.category === 'map');
 
 	return {
 		props: {
