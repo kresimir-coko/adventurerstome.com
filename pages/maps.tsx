@@ -47,7 +47,7 @@ export default function maps({
 								key={map.title}
 								onClick={() => setCurrentMap(map)}
 							>
-								<h4>{map.title}</h4>
+								<h3>{map.title}</h3>
 
 								<div className={styles.smallImageContainer}>
 									<Image
@@ -66,6 +66,7 @@ export default function maps({
 
 			<section className={styles.bigView}>
 				<div className={styles.interactive}>
+					 {/*TODO: change title to slug */}
 					<Link href={`/maps/${currentMap.title}`}>
 						<button className={styles.viewButton}>
 							{'View Post'}
@@ -88,10 +89,10 @@ export default function maps({
 				<div className={styles.bigImageContainer}>
 					<Image
 						alt={currentMap.title}
-						height={100}
-						layout="responsive"
+						layout="fill"
+						objectFit='contain'
+						priority
 						src={currentMap.coverImg}
-						width={100}
 					/>
 				</div>
 			</section>
