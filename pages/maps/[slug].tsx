@@ -3,16 +3,17 @@ import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import Link from 'next/link';
 import path from 'path';
 import Image from 'next/image';
+import type {Map} from '../../types';
 
 const fs = require('fs');
 
-export default function Maps({maps, slug}: {maps: any; slug: string}) {
-	const map = maps.find((map: any) => map.slug === slug);
+export default function Maps({maps, slug}: {maps: Map[]; slug: string}) {
+	const map = maps.find((map: Map) => map.slug === slug)!;
 
 	const isFirstMap = maps[0].slug === map.slug;
 	const isLastMap = maps[maps.length - 1].slug === map.slug;
 
-	const currentMapIndex = maps.findIndex((map: any) => map.slug === slug);
+	const currentMapIndex = maps.findIndex((map: Map) => map.slug === slug);
 
 	return (
 		<div className={`${styles.mapContainer} main-container`}>
@@ -104,7 +105,7 @@ export const getStaticProps = async ({
 		return Object.assign(post, {slug: filename.split('.')[0]});
 	});
 
-	const maps = posts.filter((post: any) => post.category === 'map');
+	const maps = posts.filter((post: Map) => post.category === 'map');
 
 	return {
 		props: {

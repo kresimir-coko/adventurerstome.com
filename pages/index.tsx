@@ -4,6 +4,7 @@ import Testimonials from '../components/Testimonials';
 import Filter from '../components/Filter';
 import {useState} from 'react';
 import path from 'path';
+import type {Map} from '../types';
 
 const fs = require('fs');
 
@@ -16,19 +17,7 @@ export default function Home({
 		label: string;
 		subCategories?: [{key: string; label: string}];
 	}[];
-	posts: {
-		category: string;
-		coverImg: string;
-		date: string;
-		downloadBlackAndWhiteUrl: string;
-		downloadColorUrl: string;
-		excerpt: string;
-		lore: string;
-		note: string;
-		subCategory: string;
-		thumbnailUrl: string;
-		title: string;
-	}[];
+	posts: Map[];
 }) {
 	const [mainCategory, setMainCategory] = useState();
 	const [subCategory, setSubCategory] = useState();
@@ -61,13 +50,11 @@ export default function Home({
 export const getStaticProps = async () => {
 	const files = fs.readdirSync(path.join('posts'));
 
-	const posts = files.map((filename: string) => {
-		const post = JSON.parse(
+	const posts = files.map(
+		(filename: string) => JSON.parse(
 			fs.readFileSync(path.join('posts', filename), 'utf-8')
-		);
-
-		return post;
-	});
+		)
+	);
 
 	const categories = [
 		{

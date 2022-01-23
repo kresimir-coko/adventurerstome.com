@@ -1,24 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/LandingPosts.module.scss';
+import type {Map} from '../types';
 
 export default function LandingPost({
 	post,
 	slug,
 }: {
-	post: {
-		category: string;
-		coverImg: string;
-		date: string;
-		downloadBlackAndWhiteUrl: string;
-		downloadColorUrl: string;
-		excerpt: string;
-		lore: string;
-		note: string;
-		subCategory: string;
-		thumbnailUrl: string;
-		title: string;
-	};
+	post: Map;
 	slug: string;
 }): JSX.Element {
 	return (

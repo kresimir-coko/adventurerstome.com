@@ -1,25 +1,14 @@
 import React from 'react';
 import LandingPost from './LandingPost';
 import styles from '../styles/LandingPosts.module.scss';
+import type {Map} from '../types';
 
 export default function LandingPostList({
 	posts,
 	mainCategory,
 	subCategory,
 }: {
-	posts: {
-		category: string;
-		coverImg: string;
-		date: string;
-		downloadBlackAndWhiteUrl: string;
-		downloadColorUrl: string;
-		excerpt: string;
-		lore: string;
-		note: string;
-		subCategory: string;
-		thumbnailUrl: string;
-		title: string;
-	}[];
+	posts: Map[];
 	mainCategory?: string;
 	subCategory?: string;
 }) {
