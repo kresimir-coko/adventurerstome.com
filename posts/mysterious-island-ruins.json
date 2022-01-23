@@ -1,13 +1,14 @@
 {
 	"category": "map",
+	"coverImg": "/mysterious-island-ruins.png",
 	"date": "December 27, 2021",
 	"downloadBlackAndWhiteUrl": "https://www.adventurerstome.com",
 	"downloadColorUrl": "https://www.adventurerstome.com",
 	"excerpt": "A place of worship, dark scheming, black magic and sacrifice",
 	"lore": "A place of worship, dark scheming, black magic and sacrifice. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed",
 	"note": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed.",
-	"title": "Mysterious Island Ruins",
-	"thumbnailUrl": "/mysterious-island-ruins.png",
+	"slug": "mysterious-island-ruins",
 	"subCategory": "ruins",
-	"coverImg": "/mysterious-island-ruins.png"
+	"thumbnailUrl": "/mysterious-island-ruins.png",
+	"title": "Mysterious Island Ruins"
 }

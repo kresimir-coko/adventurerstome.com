@@ -1,13 +1,14 @@
 {
 	"category": "map",
+	"coverImg": "/cave-of-challenges.png",
 	"date": "December 27, 2021",
 	"downloadBlackAndWhiteUrl": "https://www.adventurerstome.com",
 	"downloadColorUrl": "https://www.adventurerstome.com",
 	"excerpt": "A place of worship, dark scheming, black magic and sacrifice",
 	"lore": "A place of worship, dark scheming, black magic and sacrifice. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed",
 	"note": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed.",
-	"title": "Cave of Challenges",
-	"thumbnailUrl": "/cave-of-challenges.png",
+	"slug": "cave-of-challenges",
 	"subCategory": "cave",
-	"coverImg": "/cave-of-challenges.png"
+	"thumbnailUrl": "/cave-of-challenges.png",
+	"title": "Cave of Challenges"
 }

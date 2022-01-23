@@ -1,12 +1,13 @@
 {
 	"category": "item",
+	"coverImg": "/azaghal.png",
 	"date": "December 27, 2021",
 	"downloadBlackAndWhiteUrl": "https://www.adventurerstome.com",
 	"downloadColorUrl": "https://www.adventurerstome.com",
 	"excerpt": "A place of worship, dark scheming, black magic and sacrifice",
 	"lore": "A place of worship, dark scheming, black magic and sacrifice. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatibus beatae, similique repudiandae perferendis quas magnam et nulla odio atque quis cum excepturi minus aperiam nesciunt sapiente at iusto sed",
 	"note": "The colored version is smaller in scale due to its file-size so the grid size for that variant is 75x75px. As for the black & white variant, it's at its native resolution so the grid is at 150x150px size.",
-	"title": "Azaghal",
+	"slug": "azaghal",
 	"thumbnailUrl": "/azaghal.png",
-	"coverImg": "/azaghal.png"
+	"title": "Azaghal"
 }
