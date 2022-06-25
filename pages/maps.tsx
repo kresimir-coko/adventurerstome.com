@@ -3,9 +3,8 @@ import Image from 'next/image';
 import React, {useState} from 'react';
 import styles from '../styles/Maps.module.scss';
 import path from 'path';
-import Filter from '../components/Filter';
+import MapDownloadButtons from './../components/MapDownloadButtons';
 import type {Map} from '../types';
-import {CLIENT_RENEG_WINDOW} from 'tls';
 
 const fs = require('fs');
 
@@ -44,27 +43,20 @@ export default function maps({
 
 			<section className={styles.bigView}>
 				<div className={styles.interactive}>
-					{/*TODO: change title to slug */}
-					<Link href={`/maps/${currentMap.title}`} passHref>
+					<Link href={`/maps/${currentMap.slug}`} passHref>
 						<button className={styles.viewButton}>
 							{'View Post'}
 						</button>
 					</Link>
 
-					<div className="mapDownloadButtons">
-						<span>{'Download'}</span>
+					<h1 className={styles.bigImageTitle}>{currentMap.title}</h1>
 
-						<a href="http://localhost:3000/public/bw/">
-							{'Black & White'}
-						</a>
-
-						<a href="http://localhost:3000/public/color/">
-							{'Color'}
-						</a>
-					</div>
+					<MapDownloadButtons
+						bwURL="http://localhost:3000/public/bw/"
+						colorURL="http://localhost:3000/public/color/"
+						layout="vertical"
+					/>
 				</div>
-
-				<h1 className={styles.bigImageTitle}>{currentMap.title}</h1>
 
 				<div className={styles.bigImageContainer}>
 					<Image

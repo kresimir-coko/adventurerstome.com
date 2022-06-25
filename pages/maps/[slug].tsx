@@ -4,6 +4,7 @@ import Link from 'next/link';
 import path from 'path';
 import Image from 'next/image';
 import type {Map} from '../../types';
+import MapDownloadButtons from '../../components/MapDownloadButtons';
 
 const fs = require('fs');
 
@@ -54,13 +55,11 @@ export default function Maps({maps, slug}: {maps: Map[]; slug: string}) {
 					<span className="chip">{map.subCategory}</span>
 				</div>
 
-				<div className="mapDownloadButtons">
-					<span>{'Download'}</span>
-
-					<button>{'Black & White'}</button>
-
-					<button>{'Color'}</button>
-				</div>
+				<MapDownloadButtons
+					bwURL="http://localhost:3000/public/bw/"
+					colorURL="http://localhost:3000/public/color/"
+					layout="horizontal"
+				/>
 
 				<div className={styles.mapDate}>
 					<span>{`Posted on ${map.date}`}</span>
