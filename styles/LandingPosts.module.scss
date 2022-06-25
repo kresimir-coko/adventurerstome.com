@@ -28,17 +28,19 @@
 
 	header {
 		.postHeading {
-			overflow: hidden;
-			padding: 16px;
+			color: white;
+			line-height: 1em;
+			padding: 8px;
 			margin: 0;
 			text-align: center;
-			text-overflow: ellipsis;
+			text-shadow: 0px 0px 12px black;
 			width: 100%;
-			white-space: nowrap;
 		}
 	}
 
 	footer {
+		background: rgba(white, 80%);
+		border-radius: 0 0 15px 15px;
 		display: flex;
 		flex-direction: column;
 		margin-top: auto;
@@ -52,7 +54,7 @@
 			align-items: center;
 			justify-content: flex-start;
 			margin: 0;
-			padding: 0 0 0 8px;
+			//padding: 0 0 0 8px;
 
 			.postCategory {
 				display: inline-block;

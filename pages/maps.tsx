@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from '../styles/Maps.module.scss';
 import path from 'path';
 import Filter from '../components/Filter';
-import type { Map } from '../types';
-import { CLIENT_RENEG_WINDOW } from 'tls';
+import type {Map} from '../types';
+import {CLIENT_RENEG_WINDOW} from 'tls';
 
 const fs = require('fs');
 
 export default function maps({
 	maps,
-	categories
+	categories,
 }: {
 	maps: Map[];
-	categories: string[]
+	categories: string[];
 }) {
 	const [currentMap, setCurrentMap] = useState(maps[0]);
 
@@ -22,26 +22,23 @@ export default function maps({
 		<div className={`main-container ${styles.mapsViewContainer}`}>
 			<section className={styles.smallView}>
 				<ul>
-					{maps.map(
-						(map: Map) => (
-							<li
-								key={map.title}
-								onClick={() => setCurrentMap(map)}
-							>
-								<h3>{map.title}</h3>
+					{maps.map((map: Map) => (
+						<li
+							className={
+								map.title === currentMap.title
+									? styles.active
+									: ''
+							}
+							key={map.title}
+							onClick={() => setCurrentMap(map)}
+						>
+							<h3>{map.title}</h3>
 
-								<div className={styles.smallImageContainer}>
-									<Image
-										alt={map.title}
-										height={100}
-										layout="responsive"
-										src={map.coverImg}
-										width={100}
-									/>
-								</div>
-							</li>
-						)
-					)}
+							<div className={styles.smallImageContainer}>
+								<img alt={map.title} src={map.coverImg} />
+							</div>
+						</li>
+					))}
 				</ul>
 			</section>
 
@@ -67,11 +64,13 @@ export default function maps({
 					</div>
 				</div>
 
+				<h1 className={styles.bigImageTitle}>{currentMap.title}</h1>
+
 				<div className={styles.bigImageContainer}>
 					<Image
 						alt={currentMap.title}
 						layout="fill"
-						objectFit='contain'
+						objectFit="contain"
 						priority
 						src={currentMap.coverImg}
 					/>
@@ -97,12 +96,14 @@ export async function getStaticProps() {
 	const mapCategories: string[] = maps.map((map: Map) => map.subCategory);
 
 	const categories: string[] = mapCategories.filter(
-		(category: string, index: number) => mapCategories.indexOf(category) === index);
+		(category: string, index: number) =>
+			mapCategories.indexOf(category) === index
+	);
 
 	return {
 		props: {
 			maps,
-			categories
+			categories,
 		},
 	};
 }

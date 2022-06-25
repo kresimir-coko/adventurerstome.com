@@ -26,6 +26,16 @@
 				transition: all 0.1s ease-in-out;
 			}
 		}
+
+		&.active {
+			h3 {
+				color: $secondary-color;
+			}
+
+			img {
+				border-color: $secondary-color;
+			}
+		}
 	}
 
 	h3 {
@@ -33,16 +43,14 @@
 		text-align: center;
 	}
 
-	.smallImageContainer {
-		img {
-			border: 3px solid #fff !important;
-			border-radius: 16px !important;
-			// box-shadow: $box-shadow-med !important;
-			object-fit: cover;
-			width: 100% !important;
-		}
+	img {
+		border: 3px solid #fff;
+		border-radius: 16px;
+		box-shadow: $box-shadow-med;
+		object-fit: cover;
+		transition: 0.3s all;
+		width: 100%;
 	}
-
 }
 
 .bigView {
@@ -56,6 +64,7 @@
 	.interactive {
 		display: flex;
 		justify-content: space-around;
+		padding: 16px 0;
 		width: 100%;
 
 		a {
@@ -81,6 +90,10 @@
 		&:hover {
 			background-color: $primary-color;
 		}
+	}
+
+	.bigImageTitle {
+		margin: 0;
 	}
 
 	.bigImageContainer {
