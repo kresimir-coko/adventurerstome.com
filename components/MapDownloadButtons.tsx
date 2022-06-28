@@ -9,16 +9,22 @@ type Props = {
 
 const MapDownloadButtons = (props: Props) => {
 	return (
-		<div className={`${styles.mapDownloadButtons} ${props.layout}`}>
+		<div
+			className={`${styles.mapDownloadButtons} ${
+				props.layout ? styles.vertical : styles.horizontal
+			}`}
+		>
 			<span>{'Download'}</span>
 
-			<button>
-				<a href={props.bwURL}>{'Black & White'}</a>
-			</button>
+			<div className={styles.buttonContainer}>
+				<button>
+					<a href={props.bwURL}>{'Black & White'}</a>
+				</button>
 
-			<button>
-				<a href={props.colorURL}>{'Color'}</a>
-			</button>
+				<button>
+					<a href={props.colorURL}>{'Color'}</a>
+				</button>
+			</div>
 		</div>
 	);
 };

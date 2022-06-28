@@ -5,23 +5,22 @@
 	flex-direction: column;
 	max-width: 1400px;
 	width: 100%;
+}
 
-	.mapMainSection {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		width: 100%;
+.mapMainSection {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 
-		&.firstMap {
-			.map {
-				margin-left: auto;
-			}
+	&.firstMap {
+		.map {
+			margin-left: auto;
 		}
+	}
 
-		&.lastMap {
-			.map {
-				margin-right: auto;
-			}
+	&.lastMap {
+		.map {
+			margin-right: auto;
 		}
 	}
 }
@@ -31,14 +30,41 @@
 	color: $primary-color;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	justify-content: center;
+	position: relative;
 	width: calc(320px / 2);
 
 	&:hover {
 		color: $secondary-color;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
+	}
+
+	&.right span {
+		left: 100%;
+		transform: rotate(270deg) translateX(-50%)
+			translateY(calc(-100% - 24px));
+	}
+
+	div {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		width: 100%;
+	}
+
+	span {
+		font-family: 'Alegreya Sans SC';
+		font-size: 1.5em;
+		font-weight: 600;
+		left: 24px;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: rotate(270deg) translateX(-50%);
+		transform-origin: 0 0;
+		width: 300%;
 	}
 }
 
@@ -48,9 +74,12 @@
 	width: 100%;
 	height: 75vh;
 
-	img {
+	span {
 		border-radius: 48px;
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	}
+
+	img {
 		display: block;
 		object-fit: cover;
 		margin: 0 auto;

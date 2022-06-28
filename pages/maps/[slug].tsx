@@ -8,6 +8,32 @@ import MapDownloadButtons from '../../components/MapDownloadButtons';
 
 const fs = require('fs');
 
+function MapNavigation({
+	index,
+	maps,
+	position,
+}: {
+	index: number;
+	maps: Map[];
+	position: 'left' | 'right';
+}) {
+	return (
+		<div className={`${styles.mapNavigation} ${styles[position]}`}>
+			<Link href={`/maps/${maps[index].slug}`} passHref>
+				<div>
+					{position === 'left' ? (
+						<FaChevronLeft size={42} />
+					) : (
+						<FaChevronRight size={42} />
+					)}
+
+					<span>{maps[index].title}</span>
+				</div>
+			</Link>
+		</div>
+	);
+}
+
 export default function Maps({maps, slug}: {maps: Map[]; slug: string}) {
 	const map = maps.find((map: Map) => map.slug === slug)!;
 
@@ -24,28 +50,25 @@ export default function Maps({maps, slug}: {maps: Map[]; slug: string}) {
 				} ${isLastMap ? styles.lastMap : ''}`}
 			>
 				{!isFirstMap && (
-					<div className={styles.mapNavigation}>
-						<Link
-							href={`/maps/${maps[currentMapIndex - 1].slug}`}
-							passHref
-						>
-							<FaChevronLeft size={42} />
-						</Link>
-					</div>
+					<MapNavigation
+						index={currentMapIndex - 1}
+						maps={maps}
+						position="left"
+					/>
 				)}
 
 				<div className={styles.map}>
 					<h1 className={styles.heading}>{map.title}</h1>
 
-					<Image src={map.coverImg} layout="fill" />
+					<Image alt={map.title} src={map.coverImg} layout="fill" />
 				</div>
 
 				{!isLastMap && (
-					<div className={styles.mapNavigation}>
-						<Link href={`/maps/${maps[currentMapIndex + 1].slug}`}>
-							<FaChevronRight size={42} />
-						</Link>
-					</div>
+					<MapNavigation
+						index={currentMapIndex + 1}
+						maps={maps}
+						position="right"
+					/>
 				)}
 			</section>
 

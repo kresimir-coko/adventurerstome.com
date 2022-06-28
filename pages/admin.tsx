@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/Admin.module.scss';
 
-function admin() {
+export default function admin() {
 	return (
 		<div className={styles.adminPage}>
 			<Link href="/">{'BACK'}</Link>
@@ -27,5 +27,3 @@ function admin() {
 		</div>
 	);
 }
-
-export default admin;

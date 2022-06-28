@@ -62,25 +62,11 @@
 	width: 80%;
 
 	.interactive {
+		align-items: center;
+		background-color: #eee;
 		display: flex;
-		justify-content: space-around;
-		padding: 16px 0;
+		padding: 16px;
 		width: 100%;
-
-		a {
-			border: none;
-			border-radius: 4px;
-			display: inline-block;
-			font-family: 'Alegreya Sans SC';
-			font-size: 1em;
-			font-weight: bold;
-			padding: 8px 16px;
-
-			&:hover {
-				cursor: pointer;
-				transition: all 0.2s ease-in-out;
-			}
-		}
 	}
 
 	.viewButton {
@@ -93,7 +79,9 @@
 	}
 
 	.bigImageTitle {
+		flex: 1 1 auto;
 		margin: 0;
+		text-align: center;
 	}
 
 	.bigImageContainer {

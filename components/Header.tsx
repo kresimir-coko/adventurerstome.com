@@ -36,7 +36,7 @@ function Header() {
 						</li>
 
 						<li className={styles.navItem}>
-							<Link href="/items">
+							<Link href="/items-and-dungeons">
 								<a
 									className={`${styles.navLink} ${
 										router.pathname === '/items'
@@ -44,21 +44,7 @@ function Header() {
 											: ''
 									}`}
 								>
-									{'Items'}
-								</a>
-							</Link>
-						</li>
-
-						<li className={styles.navItem}>
-							<Link href="/dungeons">
-								<a
-									className={`${styles.navLink} ${
-										router.pathname === '/dungeons'
-											? styles.active
-											: ''
-									}`}
-								>
-									{'Dungeons'}
+									{'Items & Dungeons'}
 								</a>
 							</Link>
 						</li>

@@ -11,7 +11,7 @@ export default function LandingPost({
 	slug: string;
 }): JSX.Element {
 	return (
-		<Link href={`/maps/${slug}`}>
+		<Link href={`/maps/${post.slug}`}>
 			<div className={styles.landingPost}>
 				<header>
 					<h2 className={styles.postHeading}>{post.title}</h2>
